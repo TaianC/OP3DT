@@ -10,16 +10,16 @@ try:
 	print("[INFO]: Importing packages for backend.py...")
 	import requests
 	from sys import exit as shutdown
-	import pickle
-	import os.path as path
+	from os import getcwd
+	from os import remove
 	import zipfile
 	from bs4 import BeautifulSoup
 	from time import strftime, gmtime
 except ImportError:
-	requests = None
+	requests = None # redundant None declarations, PyCharm screams at you to define objects in except block if they're declared also in the try block.
 	shutdown = None
-	pickle = None
-	path = None
+	getcwd = None
+	remove = None
 	zipfile = None
 	BeautifulSoup = None
 	strftime = None
@@ -131,6 +131,19 @@ def updateCheck():
 	pass
 pass
 
+def updateLastUpdateCheckData(updateLastUpdateCheckDataString):
+	"""
+	A really redundant function that just writes to last-update-check-data.txt.
+	By all means I do not know why I decided to write this. But I did so anyways.
+	:param updateLastUpdateCheckDataString: String containing documentation version.
+	:return: None
+	"""
+	with open("last-update-check-data.txt", "w") as updateLastUpdateCheckDataFile:
+		updateLastUpdateCheckDataFile.truncate()
+		updateLastUpdateCheckDataFile.write(updateLastUpdateCheckDataString)
+	pass
+pass
+
 def updateDownload():
 	"""
 	Downloads documentation.
@@ -219,4 +232,12 @@ def updateUnpack():
 	Unpacks downloaded documentation ZIP archive.
 	:return:
 	"""
+	with zipfile.ZipFile("documentation.zip") as updateDocumentationUnzip:
+		print("[INFO]: Contents of documentation archive: ")
+		updateDocumentationUnzip.printdir()
+		print("[INFO]: Extracting...")
+		updateDocumentationUnzip.extractall(getcwd())
+		print("[INFO]: Extraction complete.")
+	pass
+	remove("documentation.zip")
 pass
