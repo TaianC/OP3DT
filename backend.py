@@ -12,20 +12,24 @@ try:
 	from sys import exit as shutdown
 	from os import getcwd
 	from os import remove
+	from shutil import rmtree
+	from os import mkdir
 	import zipfile
 	from bs4 import BeautifulSoup
 	from time import strftime, gmtime
-except ImportError:
+except ImportError as ie:
 	requests = None # redundant None declarations, PyCharm screams at you to define objects in except block if they're declared also in the try block.
 	shutdown = None
 	getcwd = None
 	remove = None
+	rmtree = None
+	mkdir = None
 	zipfile = None
 	BeautifulSoup = None
 	strftime = None
 	gmtime = None
-	print("[FAIL]: Imports failed for backend.py. Closing...")
-	exit(1)
+	print("[FAIL]: Imports failed for backend.py. See below for details.")
+	print(ie)
 pass
 
 # Class
@@ -131,7 +135,7 @@ def updateCheck():
 	pass
 pass
 
-def updateLastUpdateCheckData(updateLastUpdateCheckDataString):
+def updateLastUpdateCheckDataWrite(updateLastUpdateCheckDataString):
 	"""
 	A really redundant function that just writes to last-update-check-data.txt.
 	By all means I do not know why I decided to write this. But I did so anyways.
@@ -142,6 +146,18 @@ def updateLastUpdateCheckData(updateLastUpdateCheckDataString):
 		updateLastUpdateCheckDataFile.truncate()
 		updateLastUpdateCheckDataFile.write(updateLastUpdateCheckDataString)
 	pass
+pass
+
+def updateLastUpdateCheckDataRead():
+	"""
+	Another... really... redundant function. It uh... reads... last-update-check-data.txt.
+	Again. No idea why I went with this.
+	:return:
+	"""
+	with open("last-update-check-data.txt", "r") as updateLastUpdateCheckDataFile:
+		updateLastUpdateCheckDataString = updateLastUpdateCheckDataFile.read()
+	pass
+	return updateLastUpdateCheckDataString
 pass
 
 def updateDownload():
@@ -232,12 +248,15 @@ def updateUnpack():
 	Unpacks downloaded documentation ZIP archive.
 	:return:
 	"""
+	rmtree("docs")
+	mkdir("docs")
 	with zipfile.ZipFile("documentation.zip") as updateDocumentationUnzip:
 		print("[INFO]: Contents of documentation archive: ")
 		updateDocumentationUnzip.printdir()
 		print("[INFO]: Extracting...")
-		updateDocumentationUnzip.extractall(getcwd())
+		updateDocumentationUnzip.extractall(getcwd() + "\\docs")
 		print("[INFO]: Extraction complete.")
 	pass
 	remove("documentation.zip")
+	print("[INFO[: Update complete.")
 pass
