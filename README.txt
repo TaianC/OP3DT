@@ -7,7 +7,7 @@
 OP3DT is a tool that automatically downloads the latest Python3 documentation, via Requests.
 Currently it supports Windows and Linux, however hasn't been tested with all Linux distributions.
 This requires Python3, and a web browser to view HTML files. If possible, occasionally a connection to the Internet for updates (this is not necessary at all however).
-To start, install Python dependencies listed in requirements.txt, and run install.bat on Windows and install.sh on Linux.
+To start, install Python dependencies listed in requirements.txt, and run update.py.
 Please note after installation you can safely delete this tool and on Windows its shortcut. It does not install itself into the operating system.
 
 To check for documentation updates and new Github releases for OP3DT, run update.py.
