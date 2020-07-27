@@ -10,11 +10,10 @@ This requires Python3, and a web browser to view HTML files. If possible, occasi
 To start, install Python dependencies listed in requirements.txt, and run install.bat on Windows and install.sh on Linux.
 Please note after installation you can safely delete this tool and on Windows its shortcut. It does not install itself into the operating system.
 
-To check for documentation updates and new Github releases for OP3DT, run update.bat on Windows and update.sh on Linux.
+To check for documentation updates and new Github releases for OP3DT, run update.py.
 A message box will return with the latest documentation version found and the version from last update check. Please select whether to update or not.
 
-To access documentation, in Windows a shortcut should have been made in your Desktop folder, after installing.
-In Linux, run view-docs.sh (uses Python webbrowser module, this was the simplest solution). You may want to create an alias.
+To access documentation, navigate to docs folder and look for index.html.
 
 See https://github.com/TaianC/OP3DT/ for additional information, or https://dreamerslegacy.xyz/.
 
