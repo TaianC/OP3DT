@@ -17,5 +17,5 @@ To access documentation, navigate to docs folder and look for index.html.
 
 See https://github.com/TaianC/OP3DT/ for additional information, or https://dreamerslegacy.xyz/.
 
-I started writing this in the 2 hours I had nothing to do before a online conference. I have no plans to support this project, and I have no idea why anyone would use it.
+I started writing this in the 2 hours I had nothing to do before an online conference. I have no plans to support this project, and I have no idea why anyone would use it.
 Feel free to mess around with it anyways.
