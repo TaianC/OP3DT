@@ -1,8 +1,8 @@
-// Offline Python3 Documentation Tool (OP3DT)
-// Made by perpetualCreations (Taian Chen)
-// Licensed under GPL
+## Offline Python3 Documentation Tool (OP3DT)
+#### Made by perpetualCreations 
+#### Licensed under GPL
 
-// https://dreamerslegacy.xyz/
+#### https://dreamerslegacy.xyz/
 
 OP3DT is a tool that automatically downloads the latest Python3 documentation, via Requests.
 Currently it supports Windows and Linux, however hasn't been tested with all Linux distributions.
